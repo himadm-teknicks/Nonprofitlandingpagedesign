@@ -146,7 +146,7 @@ export function ClientResultsSection() {
               <button
                 key={index}
                 onClick={() => scrollToSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                className={`cursor-pointer w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   currentSlide === index
                     ? 'bg-[#427DBD] w-8'
                     : 'bg-stone-300 hover:bg-stone-400'

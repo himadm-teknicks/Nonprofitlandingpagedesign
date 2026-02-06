@@ -68,7 +68,7 @@ export function DifferentiatorsSection() {
           {/* Right Column - Image */}
           <div className="relative h-full min-h-[500px] lg:min-h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1768508951405-10e83c4a2872?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBnYWxhJTIwdmVudWUlMjBlbGVnYW50fGVufDF8fHx8MTc3MDA0NzgwMHww&ixlib=rb-4.1.0&q=80&w=1080"
+              src="assets/img/difference.jpg"
               alt="Professional gala venue"
               className="w-full h-full object-cover"
             />

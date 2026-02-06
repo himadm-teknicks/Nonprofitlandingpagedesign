@@ -68,7 +68,7 @@ export function TrustSection() {
           
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1768508947362-bca7a379e62a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxub25wcm9maXQlMjBnYWxhJTIwZXZlbnQlMjBiYWxscm9vbXxlbnwxfHx8fDE3NzAwNDc2ODd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              src="assets/img/why trust vision.jpg"
               alt="Professional nonprofit event"
               className="w-full h-full object-cover"
             />
@@ -148,7 +148,7 @@ export function TrustSection() {
             {/* Image */}
             <div className="relative h-32 md:h-48 md:col-span-2">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763739530672-4aadafbd81ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMHBsYW5uaW5nJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc3MDA0NzY4OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                src="assets/img/testimonial.webp"
                 alt="Professional event planning"
                 className="w-full h-full object-cover"
               />

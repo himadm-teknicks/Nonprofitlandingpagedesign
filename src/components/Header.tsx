@@ -39,7 +39,7 @@ export function Header() {
           {/* CTA Button */}
           <button
             onClick={handleCTAClick}
-            className={`px-6 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg ${
+            className={`cursor-pointer px-6 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg ${
               isScrolled
                 ? 'bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white'
                 : 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white'

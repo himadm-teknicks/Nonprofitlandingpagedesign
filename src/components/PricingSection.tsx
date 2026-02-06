@@ -27,7 +27,7 @@ export function PricingSection() {
         {/* CTA Button */}
         <button 
           onClick={handleCTAClick}
-          className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#427DBD] to-blue-500 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          className="cursor-pointer inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#427DBD] to-blue-500 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         >
           Let's Talk About Your Budget
         </button>

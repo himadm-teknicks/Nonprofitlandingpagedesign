@@ -216,7 +216,7 @@ export function FormSection() {
               <button
                 type="submit"
                 disabled={isSubmitted}
-                className="w-full bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white py-4 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="cursor-pointer w-full bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white py-4 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitted ? 'Submitted!' : 'Book My Free Consultation'}
               </button>

@@ -5,27 +5,27 @@ export function MeetTheTeamSection() {
     {
       name: 'Daniela Grafman, CSEP',
       title: 'Chief Amazement Officer',
-      image: 'https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGhlYWRzaG90JTIwYnVzaW5lc3MlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njk5NjQwNDV8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'assets/img/daniela.webp',
     },
     {
       name: 'Colleen Burke',
       title: 'Director of Non Profit Events',
-      image: 'https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzc3dvbWFuJTIwcG9ydHJhaXQlMjBzbWlsZXxlbnwxfHx8fDE3NzAwNDUxODZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'assets/img/colleen.webp',
     },
     {
       name: 'Allison Kulesza',
       title: 'Lead Producer, Non Profit Events',
-      image: 'https://images.unsplash.com/photo-1765005204058-10418f5123c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB3b21hbiUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDF8fHx8MTc3MDA0NTE4Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'assets/img/allison.webp',
     },
     {
       name: 'Abby Everhart',
       title: 'Lead Producer, Non Profit Events',
-      image: 'https://images.unsplash.com/photo-1629507313712-f21468afdf2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZW1hbGUlMjBidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MDA0NTE4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'assets/img/abby.webp',
     },
     {
       name: 'Katie Rodriguez',
       title: 'Lead Producer, Non Profit Events',
-      image: 'https://images.unsplash.com/photo-1720874129553-1d2e66076b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGVudHJlcHJlbmV1ciUyMHByb2Zlc3Npb25hbCUyMHBob3RvfGVufDF8fHx8MTc3MDA0NTE4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'assets/img/katie.webp',
     },
   ];
 
@@ -51,6 +51,7 @@ export function MeetTheTeamSection() {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: 'top' }}
                   />
                 </div>
 
