@@ -1,0 +1,54 @@
+import { useState, useEffect } from 'react';
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleCTAClick = () => {
+    const formSection = document.getElementById('form-section');
+    formSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <div className="flex items-center">
+            <h1 className={`text-2xl font-light tracking-wide transition-colors ${
+              isScrolled ? 'text-stone-900' : 'text-white'
+            }`}>
+              Vision Event Co.
+            </h1>
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={handleCTAClick}
+            className={`px-6 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg ${
+              isScrolled
+                ? 'bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white'
+                : 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white'
+            }`}
+          >
+            Book a Free Consultation
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
