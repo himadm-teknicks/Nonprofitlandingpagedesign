@@ -6,37 +6,43 @@ export function TrustSection() {
   const benefits = [
     {
       icon: SlidersIcon,
-      title: 'À la carte services - no bloated packages or rigid scopes',
+      title: 'À la carte services',
+      description: 'Hire us for just what you need - no bloated packages or minimums.',
+      hasCallout: false,
+    },
+    {
+      icon: GrowthIcon,
+      title: 'High fundraising ROI',
+      description: 'Clients regularly raise 2–3x more—and often enough to cover our fees entirely. They also get their time back to focus on cultivation, not logistics.',
       statCallout: 'Over 75% of nonprofits still rely on in-person, relationship-driven fundraising. We help make those events your most valuable channel.',
       hasCallout: true,
     },
     {
-      icon: GrowthIcon,
-      title: 'High fundraising ROI - clients often raise enough to cover our fees entirely',
-      hasCallout: false,
-    },
-    {
       icon: ShieldIcon,
-      title: 'Expert vendor negotiation - we cut waste, renegotiate bad contracts, and protect your budget',
-      quote: 'They helped us negotiate surprise costs with our venue and A/V - after we\'d already signed contracts. Wish we\'d brought them in sooner!',
+      title: 'Vendor Contract Savings',
+      description: 'We renegotiate bad deals, cut surprise costs, and protect your budget.',
+      quote: 'They helped us negotiate surprise costs with our venue and A/V—after we\'d already signed contracts. Wish we\'d brought them in sooner!',
       attribution: 'GrowNYC',
       hasCallout: true,
     },
     {
       icon: SparkleIcon,
-      title: 'Wedding-level attention to detail - yes, we also do weddings, so you get concierge-level service',
+      title: 'Full-Scope On-Site Management',
+      description: 'We handle day-of execution from check-in to clean-up - including registration staffing, floor plan layout, timing cues, and real-time troubleshooting.',
       hasCallout: false,
     },
     {
       icon: MonitorIcon,
-      title: 'In-person + virtual event experience - we help you create seamless experiences across formats',
-      quote: 'Everyone - whether they joined in person or online - felt connected, uplifted, and supported.',
+      title: 'In-person + virtual event experience',
+      description: 'Seamless experience across formats - from 500-person galas to hybrid community gatherings.',
+      quote: 'Everyone—whether they joined in person or online—felt connected, uplifted, and supported.',
       attribution: 'Lab/Shul',
       hasCallout: true,
     },
     {
       icon: AwardIcon,
-      title: 'Proven nonprofit experience - we understand board approvals, compliance, and fundraising cycles',
+      title: 'Proven nonprofit experience',
+      description: 'We understand board approvals, compliance, and fundraising cycles.',
       hasCallout: false,
     },
   ];
@@ -85,6 +91,13 @@ export function TrustSection() {
                   <h3 className="text-lg font-medium text-stone-900 mb-3 leading-snug">
                     {benefit.title}
                   </h3>
+
+                  {/* Description */}
+                  {benefit.description && (
+                    <p className="text-sm text-stone-700 leading-relaxed mb-3">
+                      {benefit.description}
+                    </p>
+                  )}
 
                   {/* Stat Callout */}
                   {benefit.hasCallout && benefit.statCallout && (

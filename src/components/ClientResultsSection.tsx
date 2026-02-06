@@ -1,10 +1,14 @@
 import { Quote } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useRef, useState, useEffect } from 'react';
 
 export function ClientResultsSection() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const testimonials = [
     {
-      quote: "We raised 3x more than expected - and I actually got to spend time with donors instead of dealing with the AV guy.",
+      quote: "Vision took over the logistics so we could actually talk to donors during the event - and it resulted in us raising 3x more than expected.",
       client: "Marissa T.",
       role: "Executive Director",
       logo: null,
@@ -15,14 +19,14 @@ export function ClientResultsSection() {
       client: "Sarah",
       role: "Lab/Shul",
       logo: null,
-      result: "Handled everything with professionalism, creativity, and care",
+      result: "Highest level of professionalism, creativity, and care",
     },
     {
-      quote: "After two years of DIY events, we tripled our revenue with Vision's support.",
+      quote: "They handled run of show, guest check-in, last-minute AV chaos - everything. Our team actually got to enjoy the event",
       client: "Kate R.",
       role: "Event Director",
       logo: null,
-      result: "Tripled revenue with Vision's support",
+      result: "Our team got to enjoy the event",
     },
     {
       quote: "Cut $15K in A/V and venue fees - while still delivering our best event yet.",
@@ -47,6 +51,33 @@ export function ClientResultsSection() {
     },
   ];
 
+  const scrollToSlide = (index: number) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const slideWidth = container.children[0]?.clientWidth || 0;
+      const gap = 24; // 6 * 4px (gap-6)
+      const scrollPosition = (slideWidth + gap) * index;
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+      setCurrentSlide(index);
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const slideWidth = container.children[0]?.clientWidth || 0;
+      const gap = 24;
+      const currentIndex = Math.round(scrollLeft / (slideWidth + gap));
+      setCurrentSlide(currentIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="bg-gradient-to-b from-blue-50/30 to-white py-16 md:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -60,50 +91,68 @@ export function ClientResultsSection() {
 
         {/* Scrollable Testimonials */}
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide">
+          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide" ref={scrollContainerRef}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 w-80 md:w-96 snap-center"
               >
-                <div className="h-full bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-blue-100/50 relative">
-                  {/* Decorative Quote */}
-                  <div className="absolute top-6 right-6 opacity-5">
-                    <Quote className="w-16 h-16 text-[#427DBD]" />
-                  </div>
-
-                  <div className="relative z-10">
-                    {/* Client Logo/Placeholder */}
-                    <div className="flex items-center justify-center mb-4">
-                      {testimonial.logo ? (
-                        <img src={testimonial.logo} alt={testimonial.client} className="h-12 object-contain" />
-                      ) : (
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#427DBD] to-blue-400 flex items-center justify-center">
-                          <Quote className="w-6 h-6 text-white" />
-                        </div>
-                      )}
+                <div className="h-full bg-white rounded-xl shadow-md transition-all duration-300 border border-blue-100/50 overflow-hidden flex flex-col">
+                  <div className="p-8 relative flex-grow">
+                    {/* Decorative Quote */}
+                    <div className="absolute top-6 right-6 opacity-5">
+                      <Quote className="w-16 h-16 text-[#427DBD]" />
                     </div>
 
-                    {/* Client Name */}
-                    <h4 className="font-medium text-stone-900 text-lg text-center mb-3">
-                      {testimonial.client}
-                    </h4>
+                    <div className="relative z-10">
+                      {/* Client Logo/Placeholder */}
+                      <div className="flex items-center justify-center mb-4">
+                        {testimonial.logo ? (
+                          <img src={testimonial.logo} alt={testimonial.client} className="h-12 object-contain" />
+                        ) : (
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#427DBD] to-blue-400 flex items-center justify-center">
+                            <Quote className="w-6 h-6 text-white" />
+                          </div>
+                        )}
+                      </div>
 
-                    {/* Result Brief - Above Quote */}
-                    <p className="font-medium text-[#427DBD] text-sm text-center mb-6">
-                      {testimonial.result}
-                    </p>
+                      {/* Client Name */}
+                      <h4 className="font-medium text-stone-900 text-lg text-center mb-3">
+                        {testimonial.client}
+                      </h4>
 
-                    {/* Quote */}
-                    <blockquote className="text-base md:text-lg text-stone-700 leading-relaxed italic">
-                      "{testimonial.quote}"
-                    </blockquote>
+                      {/* Result Brief - Above Quote */}
+                      <p className="font-medium text-[#427DBD] text-sm text-center mb-6">
+                        {testimonial.result}
+                      </p>
+
+                      {/* Quote */}
+                      <blockquote className="text-base md:text-lg text-stone-700 leading-relaxed italic">
+                        "{testimonial.quote}"
+                      </blockquote>
+                    </div>
                   </div>
 
                   {/* Decorative Accent */}
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#427DBD] to-blue-400 rounded-b-xl" />
+                  <div className="h-1 bg-gradient-to-r from-[#427DBD] to-blue-400" />
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Bullet Point Navigation */}
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? 'bg-[#427DBD] w-8'
+                    : 'bg-stone-300 hover:bg-stone-400'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
             ))}
           </div>
         </div>

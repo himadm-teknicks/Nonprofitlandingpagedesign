@@ -183,3 +183,13 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Hide scrollbar for testimonial carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
