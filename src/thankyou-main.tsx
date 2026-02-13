@@ -1,0 +1,5 @@
+import { createRoot } from 'react-dom/client';
+import ThankYouApp from './ThankYouApp.tsx';
+import './index.css';
+
+createRoot(document.getElementById('root')!).render(<ThankYouApp />);

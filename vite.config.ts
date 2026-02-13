@@ -4,7 +4,8 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/Nonprofitlandingpagedesign/',
+    base: '/',
+    appType: 'mpa',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -53,6 +54,13 @@
     build: {
       target: 'esnext',
       outDir: 'build',
+      assetsDir: '_np-assets',
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          thankyou: path.resolve(__dirname, 'thankyou/index.html'),
+        },
+      },
     },
     server: {
       port: 3000,

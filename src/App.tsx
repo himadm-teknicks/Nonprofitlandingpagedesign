@@ -11,11 +11,16 @@ import { DifferentiatorsSection } from './components/DifferentiatorsSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
+  const handleFormSuccess = (firstName: string) => {
+    const base = import.meta.env.BASE_URL;
+    window.location.href = `${base}thankyou?name=${encodeURIComponent(firstName)}`;
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <HeroSection />
-      <FormSection />
+      <FormSection onSuccess={handleFormSuccess} />
       <SectionSeparator />
       <TrustSection />
       <FeaturedSection />

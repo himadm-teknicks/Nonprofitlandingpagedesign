@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-export function Header() {
+interface HeaderProps {
+  hideCTA?: boolean;
+}
+
+export function Header({ hideCTA }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -37,16 +41,18 @@ export function Header() {
           </div>
 
           {/* CTA Button */}
-          <button
-            onClick={handleCTAClick}
-            className={`cursor-pointer px-6 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg ${
-              isScrolled
-                ? 'bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white'
-                : 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white'
-            }`}
-          >
-            Book a Free Consultation
-          </button>
+          {!hideCTA && (
+            <button
+              onClick={handleCTAClick}
+              className={`cursor-pointer px-6 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg ${
+                isScrolled
+                  ? 'bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white'
+                  : 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white'
+              }`}
+            >
+              Book a Free Consultation
+            </button>
+          )}
         </div>
       </div>
     </header>
