@@ -74,6 +74,14 @@ export function Footer() {
             <p className="text-sm text-stone-500">
               © {new Date().getFullYear()} Vision Event Co. All rights reserved.
             </p>
+            <a
+              href="https://visioneventco.com/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-stone-400 hover:text-[#427DBD] transition-colors duration-300 mt-2 inline-block"
+            >
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>

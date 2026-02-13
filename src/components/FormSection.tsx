@@ -19,6 +19,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,10 +44,13 @@ export function FormSection({ onSuccess }: FormSectionProps) {
         throw new Error('Something went wrong. Please try again.');
       }
 
-      onSuccess?.(formData.firstName);
+      setIsLoading(false);
+      setIsSuccess(true);
+      setTimeout(() => {
+        onSuccess?.(formData.firstName);
+      }, 2000);
     } catch {
       setErrorMessage('Something went wrong. Please try again.');
-    } finally {
       setIsLoading(false);
     }
   };
@@ -134,6 +138,25 @@ export function FormSection({ onSuccess }: FormSectionProps) {
 
           {/* Right Column - Form */}
           <div className="bg-white rounded-lg shadow-xl p-8 lg:p-10 border border-blue-100/50">
+            {isSuccess ? (
+              <div className="flex flex-col items-center justify-center py-16 space-y-4">
+                <svg
+                  className="w-20 h-20 text-[#427DBD] animate-[scaleIn_0.4s_ease-out]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle className="animate-[drawCircle_0.4s_ease-out_forwards]" cx="12" cy="12" r="10" strokeDasharray="63" strokeDashoffset="0" />
+                  <path className="animate-[drawCheck_0.3s_ease-out_0.4s_both]" d="M8 12l3 3 5-5" strokeDasharray="20" strokeDashoffset="0" />
+                </svg>
+                <p className="text-xl font-light text-stone-900">You're all set{formData.firstName ? `, ${formData.firstName}` : ''}!</p>
+                <p className="text-stone-500 text-sm">Redirecting you now...</p>
+              </div>
+            ) : (
+            <>
             <h3 className="text-2xl md:text-3xl font-light text-stone-900 mb-6">
               Let's talk about your next event.
             </h3>
@@ -273,6 +296,8 @@ export function FormSection({ onSuccess }: FormSectionProps) {
                 Make your next event your most profitable yet.
               </p>
             </form>
+            </>
+            )}
           </div>
         </div>
       </div>
