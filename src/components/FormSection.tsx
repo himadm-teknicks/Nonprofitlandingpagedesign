@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Calendar } from 'lucide-react';
 import { CheckCircleIcon } from './CustomIcons';
 
-const FORM_ENDPOINT = 'https://form-handler.your-worker.workers.dev/submit';
+const FORM_ENDPOINT = '/api/submit';
 
 interface FormSectionProps {
   onSuccess?: (firstName: string) => void;
