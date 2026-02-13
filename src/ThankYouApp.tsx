@@ -89,7 +89,7 @@ export default function ThankYouApp() {
                   <div>
                     <h3 className="text-xl font-medium text-stone-900 mb-2">A Tailored Game Plan</h3>
                     <p className="text-stone-600 leading-relaxed">
-                      From there, we'll provide a tailored game plan — whether you need full production or just a few extra hands.
+                      From there, we'll provide a tailored game plan, whether you need full production or just a few extra hands.
                     </p>
                   </div>
                 </div>
