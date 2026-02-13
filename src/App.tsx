@@ -12,8 +12,8 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   const handleFormSuccess = (firstName: string) => {
-    const base = import.meta.env.BASE_URL;
-    window.location.href = `${base}thankyou?name=${encodeURIComponent(firstName)}`;
+    const thankyouPath = import.meta.env.VITE_THANKYOU_URL || '/thankyou';
+    window.location.href = `${thankyouPath}?name=${encodeURIComponent(firstName)}`;
   };
 
   return (

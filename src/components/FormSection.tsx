@@ -137,7 +137,19 @@ export function FormSection({ onSuccess }: FormSectionProps) {
             </div>
           </div>
 
-          {/* Right Column - Form */}
+          {/* Toggle: set to true for Aisle Planner iframe, false for custom form */}
+          {true ? (
+          <div className="bg-white rounded-lg shadow-xl border border-blue-100/50 overflow-hidden">
+            <iframe
+              id="lead-form"
+              src="https://www.aisleplanner.com/inquiries/visioneventco/67181459-3051-46c1-83e9-ef3d922d6c14"
+              frameBorder="0"
+              width="100%"
+              height="750"
+              style={{ border: 'none' }}
+            />
+          </div>
+          ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 lg:p-10 border border-blue-100/50">
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-16 space-y-4">
@@ -300,6 +312,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
             </>
             )}
           </div>
+          )}
         </div>
       </div>
     </section>
