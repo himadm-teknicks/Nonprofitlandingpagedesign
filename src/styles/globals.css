@@ -184,6 +184,10 @@ html {
   font-size: var(--font-size);
 }
 
+button, a {
+  cursor: pointer;
+}
+
 /* Hide scrollbar for testimonial carousel */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

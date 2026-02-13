@@ -17,7 +17,7 @@ export default function ThankYouApp() {
       <section className="relative pt-20 pb-8 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="absolute inset-0 z-0">
           <ImageWithFallback
-            src="assets/img/hero BG.webp"
+            src="/assets/img/hero BG.webp"
             alt="Elegant nonprofit gala event"
             className="w-full h-full object-cover opacity-40"
           />
@@ -100,7 +100,7 @@ export default function ThankYouApp() {
             <div className="flex items-center justify-center">
               <div className="rounded-lg overflow-hidden shadow-xl border border-blue-100/50">
                 <ImageWithFallback
-                  src="assets/img/difference.jpg"
+                  src="/assets/img/difference.jpg"
                   alt="Vision Event Co. team at work"
                   className="w-full h-full object-cover"
                 />

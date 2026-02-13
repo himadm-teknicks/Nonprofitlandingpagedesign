@@ -46,6 +46,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
 
       setIsLoading(false);
       setIsSuccess(true);
+      document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => {
         onSuccess?.(formData.firstName);
       }, 2000);
