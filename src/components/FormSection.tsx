@@ -138,7 +138,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
           </div>
 
           {/* Toggle: set to true for Aisle Planner iframe, false for custom form */}
-          {true ? (
+          {false ? (
           <div className="bg-white rounded-lg shadow-xl border border-blue-100/50 overflow-hidden">
             <iframe
               id="lead-form"
