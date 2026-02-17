@@ -84,7 +84,7 @@ export function FeaturedSection() {
       imageName: 'labshul',
       image: `${import.meta.env.BASE_URL}assets/img/labshul.png`,
       event: 'Annual Gala + High Holidays Celebration',
-      guests: '4-Day Event, 300–900 Guests',
+      guests: '4-Day Event, 300-900 Guests',
       services: [
         'Multiple Breakouts',
         'Award Program',
