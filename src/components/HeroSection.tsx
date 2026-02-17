@@ -11,7 +11,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="assets/img/hero BG.webp"
+          src={`${import.meta.env.BASE_URL}assets/img/hero BG.webp`}
           alt="Elegant nonprofit gala event"
           className="w-full h-full object-cover opacity-40"
         />

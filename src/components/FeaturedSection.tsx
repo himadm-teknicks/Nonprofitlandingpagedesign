@@ -6,7 +6,7 @@ export function FeaturedSection() {
     {
       name: 'The Covenant Foundation',
       imageName: 'covenant foundation',
-      image: 'assets/img/covenant foundation.svg',
+      image: `${import.meta.env.BASE_URL}assets/img/covenant foundation.svg`,
       event: 'Annual Dinner + Breakfast Symposium',
       guests: '2-Day Event, 400 Guests',
       services: [
@@ -22,7 +22,7 @@ export function FeaturedSection() {
     {
       name: 'GrowNYC',
       imageName: 'grownyc',
-      image: 'assets/img/grownyc.png',
+      image: `${import.meta.env.BASE_URL}assets/img/grownyc.png`,
       event: 'Annual Fundraising Gala',
       guests: '300 Guests',
       services: [
@@ -38,7 +38,7 @@ export function FeaturedSection() {
     {
       name: 'The Eagle Academy Foundation',
       imageName: 'eagleacademy',
-      image: 'assets/img/eagleacademy.png',
+      image: `${import.meta.env.BASE_URL}assets/img/eagleacademy.png`,
       event: '20th Anniversary Fundraising Gala',
       guests: '500 Guests',
       services: [
@@ -54,7 +54,7 @@ export function FeaturedSection() {
     {
       name: 'Melee the Show',
       imageName: 'melee logo',
-      image: 'assets/img/melee logo.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/melee logo.webp`,
       event: 'Bi-Annual Trade Show',
       guests: '3-Day Event, 600 Guests',
       services: [
@@ -69,7 +69,7 @@ export function FeaturedSection() {
     {
       name: 'The Alfred E. Smith Memorial Foundation',
       imageName: 'alfredsmith',
-      image: 'assets/img/alfredsmith.png',
+      image: `${import.meta.env.BASE_URL}assets/img/alfredsmith.png`,
       event: 'Annual Fundraising Dinner',
       guests: '800 Guests',
       services: [
@@ -82,7 +82,7 @@ export function FeaturedSection() {
     {
       name: 'Lab/Shul',
       imageName: 'labshul',
-      image: 'assets/img/labshul.png',
+      image: `${import.meta.env.BASE_URL}assets/img/labshul.png`,
       event: 'Annual Gala + High Holidays Celebration',
       guests: '4-Day Event, 300–900 Guests',
       services: [
@@ -97,7 +97,7 @@ export function FeaturedSection() {
     {
       name: 'Vellore Christian Medical College',
       imageName: 'vellore',
-      image: 'assets/img/vellore.jpg',
+      image: `${import.meta.env.BASE_URL}assets/img/vellore.jpg`,
       event: 'Annual Fundraising Gala',
       guests: '300 Guests',
       services: [

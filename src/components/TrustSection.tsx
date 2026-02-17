@@ -68,7 +68,7 @@ export function TrustSection() {
           
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
             <ImageWithFallback
-              src="assets/img/why trust vision.jpg"
+              src={`${import.meta.env.BASE_URL}assets/img/why trust vision.jpg`}
               alt="Professional nonprofit event"
               className="w-full h-full object-cover"
             />
@@ -148,7 +148,7 @@ export function TrustSection() {
             {/* Image */}
             <div className="relative h-32 md:h-48 md:col-span-2">
               <ImageWithFallback
-                src="assets/img/testimonial.webp"
+                src={`${import.meta.env.BASE_URL}assets/img/testimonial.webp`}
                 alt="Professional event planning"
                 className="w-full h-full object-cover"
               />
