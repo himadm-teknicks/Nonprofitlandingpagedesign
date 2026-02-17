@@ -1,8 +1,22 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
 import { CheckCircleIcon } from './CustomIcons';
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: HTMLElement, options: {
+        sitekey: string;
+        callback: (token: string) => void;
+        'expired-callback'?: () => void;
+      }) => string;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
+
 const FORM_ENDPOINT = `${import.meta.env.BASE_URL}api/submit`;
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACe2zzWyWAPrFCnR';
 
 interface FormSectionProps {
   onSuccess?: (firstName: string) => void;
@@ -15,12 +29,49 @@ export function FormSection({ onSuccess }: FormSectionProps) {
     email: '',
     eventDate: '',
     message: '',
-    captcha: false,
+    consent: false,
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  const turnstileCallback = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  useEffect(() => {
+    const renderWidget = () => {
+      if (
+        turnstileRef.current &&
+        window.turnstile &&
+        !widgetIdRef.current
+      ) {
+        widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: turnstileCallback,
+          'expired-callback': () => setTurnstileToken(null),
+        });
+      }
+    };
+
+    // Turnstile script may already be loaded or may load later
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      // Poll for turnstile to become available
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(interval);
+          renderWidget();
+        }
+      }, 200);
+      return () => clearInterval(interval);
+    }
+  }, [turnstileCallback]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +88,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
           email: formData.email,
           eventDate: formData.eventDate,
           message: formData.message,
+          turnstileToken,
         }),
       });
 
@@ -263,20 +315,27 @@ export function FormSection({ onSuccess }: FormSectionProps) {
                 />
               </div>
 
-              {/* CAPTCHA */}
+              {/* Consent */}
               <div className="flex items-start gap-3 p-4 border border-stone-200 rounded-md bg-stone-50">
                 <input
                   type="checkbox"
-                  id="captcha"
+                  id="consent"
                   required
-                  checked={formData.captcha}
-                  onChange={(e) => setFormData({ ...formData, captcha: e.target.checked })}
+                  checked={formData.consent}
+                  onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
                   className="mt-1 w-4 h-4 text-[#427DBD] border-stone-300 rounded focus:ring-[#427DBD]"
                 />
-                <label htmlFor="captcha" className="text-sm text-stone-600">
-                  I'm not a robot (CAPTCHA verification)
+                <label htmlFor="consent" className="text-sm text-stone-600">
+                  I agree to the processing and storage of my personal data by Vision Event Co. for
+                  the purpose of responding to my request. I also consent to receive calls, text
+                  messages, and emails from Vision Event Co. I understand that I can unsubscribe or
+                  opt out of these communications at any time by following the instructions included
+                  in the messages. <span className="text-[#427DBD]">*</span>
                 </label>
               </div>
+
+              {/* Cloudflare Turnstile */}
+              <div ref={turnstileRef} />
 
               {/* Error Message */}
               {errorMessage && (
@@ -286,7 +345,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isLoading}
+                disabled={isLoading || !formData.consent || !turnstileToken}
                 className="cursor-pointer w-full bg-gradient-to-r from-[#427DBD] to-blue-500 hover:from-blue-600 hover:to-blue-600 text-white py-4 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isLoading ? (

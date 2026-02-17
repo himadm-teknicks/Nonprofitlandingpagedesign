@@ -1,15 +1,45 @@
 interface Env {
   RESEND_API_KEY: string;
   RECIPIENT_EMAIL?: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
-  const { firstName, organization, email, eventDate, message } =
+  const { firstName, organization, email, eventDate, message, turnstileToken } =
     await request.json<Record<string, string>>();
 
   if (!firstName || !organization || !email || !message) {
     return new Response(JSON.stringify({ error: "Missing required fields" }), {
       status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // Verify Cloudflare Turnstile token
+  if (!turnstileToken) {
+    return new Response(JSON.stringify({ error: "CAPTCHA verification required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const turnstileRes = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+      }),
+    }
+  );
+
+  const turnstileData = await turnstileRes.json<{ success: boolean }>();
+
+  if (!turnstileData.success) {
+    return new Response(JSON.stringify({ error: "CAPTCHA verification failed" }), {
+      status: 403,
       headers: { "Content-Type": "application/json" },
     });
   }
