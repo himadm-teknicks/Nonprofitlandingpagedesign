@@ -16,6 +16,7 @@ export function MeetTheTeamSection() {
       name: 'Allison Kulesza',
       title: 'Lead Producer, Non Profit Events',
       image: `${import.meta.env.BASE_URL}assets/img/allison.webp`,
+      objectPosition: 'center 20%',
     },
     {
       name: 'Abby Everhart',
@@ -51,7 +52,7 @@ export function MeetTheTeamSection() {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: 'top' }}
+                    style={{ objectPosition: member.objectPosition || 'top' }}
                   />
                 </div>
 
