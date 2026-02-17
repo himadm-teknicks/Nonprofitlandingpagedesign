@@ -35,10 +35,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     }
   );
 
-  const turnstileData = await turnstileRes.json<{ success: boolean }>();
+  const turnstileData = await turnstileRes.json<{ success: boolean; "error-codes"?: string[] }>();
 
   if (!turnstileData.success) {
-    return new Response(JSON.stringify({ error: "CAPTCHA verification failed" }), {
+    return new Response(JSON.stringify({ error: "CAPTCHA verification failed", details: turnstileData }), {
       status: 403,
       headers: { "Content-Type": "application/json" },
     });
