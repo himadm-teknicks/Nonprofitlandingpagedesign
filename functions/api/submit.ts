@@ -1,6 +1,6 @@
 interface Env {
   RESEND_API_KEY: string;
-  RECIPIENT_EMAIL?: string;
+  RECIPIENT_EMAIL: string;
   TURNSTILE_SECRET_KEY: string;
 }
 
@@ -44,7 +44,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     });
   }
 
-  const to = env.RECIPIENT_EMAIL || "himad.mouhtar@teknicks.com";
+  const to = env.RECIPIENT_EMAIL.split(",").map((e) => e.trim());
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
