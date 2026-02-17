@@ -4,7 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/',
+    base: '/nonprofit-event-services/',
     appType: 'mpa',
     plugins: [react()],
     resolve: {
