@@ -5,27 +5,27 @@ export function MeetTheTeamSection() {
     {
       name: 'Daniela Grafman, CSEP',
       title: 'Chief Amazement Officer',
-      image: 'assets/img/daniela.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/daniela.webp`,
     },
     {
       name: 'Colleen Burke',
       title: 'Director of Non Profit Events',
-      image: 'assets/img/colleen.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/colleen.webp`,
     },
     {
       name: 'Allison Kulesza',
       title: 'Lead Producer, Non Profit Events',
-      image: 'assets/img/allison.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/allison.webp`,
     },
     {
       name: 'Abby Everhart',
       title: 'Lead Producer, Non Profit Events',
-      image: 'assets/img/abby.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/abby.webp`,
     },
     {
       name: 'Katie Rodriguez',
       title: 'Lead Producer, Non Profit Events',
-      image: 'assets/img/katie.webp',
+      image: `${import.meta.env.BASE_URL}assets/img/katie.webp`,
     },
   ];
 
