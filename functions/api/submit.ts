@@ -53,7 +53,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Vision Event Co. <onboarding@resend.dev>",
+      from: "Vision Event Co. <noreply@notifications.visioneventco.com>",
       to,
       subject: `New Consultation Request from ${firstName} (${organization})`,
       html: `
