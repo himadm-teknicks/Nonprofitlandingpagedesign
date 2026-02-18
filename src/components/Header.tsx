@@ -33,11 +33,13 @@ export function Header({ hideCTA }: HeaderProps) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className={`text-2xl font-light tracking-wide transition-colors ${
-              isScrolled ? 'text-stone-900' : 'text-white'
-            }`}>
-              Vision Event Co.
-            </h1>
+            <img
+              src={`${import.meta.env.BASE_URL}assets/img/vision-logo.webp`}
+              alt="Vision Event Co."
+              className={`h-12 w-auto transition-all ${
+                isScrolled ? 'brightness-0' : 'brightness-0 invert'
+              }`}
+            />
           </div>
 
           {/* CTA Button */}

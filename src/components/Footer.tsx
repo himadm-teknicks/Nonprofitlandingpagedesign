@@ -7,9 +7,11 @@ export function Footer() {
         <div className="max-w-4xl mx-auto">
           {/* Logo/Brand */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-light text-stone-900 mb-4">
-              Vision Event Co.
-            </h2>
+            <img
+              src={`${import.meta.env.BASE_URL}assets/img/vision-logo.webp`}
+              alt="Vision Event Co."
+              className="h-14 w-auto mx-auto mb-4 brightness-0"
+            />
             <p className="text-base text-stone-600 leading-relaxed">
               Nonprofit event planning for fundraising galas and events, with the precision and care of luxury weddings.
             </p>
