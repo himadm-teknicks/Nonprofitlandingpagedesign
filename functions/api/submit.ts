@@ -5,7 +5,7 @@ interface Env {
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
-  const { firstName, organization, email, eventDate, message, turnstileToken } =
+  const { firstName, organization, email, eventDate, eventVenue, message, turnstileToken } =
     await request.json<Record<string, string>>();
 
   if (!firstName || !organization || !email || !message) {
@@ -62,6 +62,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         <p><strong>Organization:</strong> ${organization}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Event Timeline:</strong> ${eventDate || "Not specified"}</p>
+        <p><strong>Event Venue:</strong> ${eventVenue || "Not specified"}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,

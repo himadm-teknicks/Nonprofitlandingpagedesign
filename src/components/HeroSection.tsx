@@ -9,14 +9,13 @@ export function HeroSection() {
   return (
     <section className="relative pt-20 pb-8 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <ImageWithFallback
-          src={`${import.meta.env.BASE_URL}assets/img/hero BG.webp`}
-          alt="Elegant nonprofit gala event"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-blue-950/85" />
-      </div>
+      <ImageWithFallback
+        src={`${import.meta.env.BASE_URL}assets/img/hero BG.webp`}
+        alt="Elegant nonprofit gala event"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(to bottom right, rgba(15,23,42,0.88), rgba(30,41,59,0.80), rgba(23,37,84,0.75))' }} />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-8 text-center">

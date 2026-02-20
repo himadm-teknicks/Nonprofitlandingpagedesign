@@ -28,6 +28,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
     organization: '',
     email: '',
     eventDate: '',
+    eventVenue: '',
     message: '',
     consent: false,
   });
@@ -87,6 +88,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
           organization: formData.organization,
           email: formData.email,
           eventDate: formData.eventDate,
+          eventVenue: formData.eventVenue,
           message: formData.message,
           turnstileToken,
         }),
@@ -116,8 +118,8 @@ export function FormSection({ onSuccess }: FormSectionProps) {
   };
 
   return (
-    <section id="form-section" className="bg-gradient-to-b from-blue-50/30 to-stone-50/50 py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="form-section" className="bg-gradient-to-b from-blue-50/30 to-stone-50/50 py-16 md:py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Supporting Copy */}
           <div className="space-y-6">
@@ -202,7 +204,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
             />
           </div>
           ) : (
-          <div className="bg-white rounded-lg shadow-xl p-8 lg:p-10 border border-blue-100/50">
+          <div className="bg-white rounded-lg shadow-xl p-5 sm:p-8 lg:p-10 border border-blue-100/50">
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-16 space-y-4">
                 <svg
@@ -300,6 +302,21 @@ export function FormSection({ onSuccess }: FormSectionProps) {
               </div>
 
               <div>
+                <label htmlFor="eventVenue" className="block text-sm font-medium text-stone-700 mb-2">
+                  Event Venue <span className="text-stone-400 text-xs">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="eventVenue"
+                  name="eventVenue"
+                  value={formData.eventVenue}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-stone-300 rounded-md focus:ring-2 focus:ring-[#427DBD] focus:border-transparent transition-shadow"
+                  placeholder="Venue name or location"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium text-stone-700 mb-2">
                   How can we help? <span className="text-[#427DBD]">*</span>
                 </label>
@@ -335,7 +352,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
               </div>
 
               {/* Cloudflare Turnstile */}
-              <div ref={turnstileRef} />
+              <div ref={turnstileRef} className="[&>iframe]:max-w-full" />
 
               {/* Error Message */}
               {errorMessage && (

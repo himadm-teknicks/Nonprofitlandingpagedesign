@@ -69,7 +69,7 @@ export function FeaturedSection() {
     {
       name: 'The Alfred E. Smith Memorial Foundation',
       imageName: 'alfredsmith',
-      image: `${import.meta.env.BASE_URL}assets/img/alfredsmith.png`,
+      image: `${import.meta.env.BASE_URL}assets/img/alfredsmith-new.png`,
       event: 'Annual Fundraising Dinner',
       guests: '800 Guests',
       services: [

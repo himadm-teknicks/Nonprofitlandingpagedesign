@@ -20,14 +20,14 @@ export function PricingSection() {
             We believe in the missions of the nonprofits we serve. That's why our services start as low as <span className="font-medium text-stone-900">$2,500</span> - and scale up only when needed. Whether you need help for a day, a week, or all year - we'll make sure you get maximum value per dollar.
           </p>
           <p className="text-lg md:text-xl text-stone-700 leading-relaxed">
-            Professionally executed live events often generate enough to offset production costs entirely. That's why we design our pricing to maximize your net fundraising ROI.
+            You'll know upfront what you're investing - and how we help position your event for fundraising success.
           </p>
         </div>
 
         {/* CTA Button */}
         <button 
           onClick={handleCTAClick}
-          className="cursor-pointer inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#427DBD] to-blue-500 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          className="cursor-pointer inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#427DBD] to-blue-500 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl"
         >
           Let's Talk About Your Budget
         </button>

@@ -7,11 +7,13 @@ export function Footer() {
         <div className="max-w-4xl mx-auto">
           {/* Logo/Brand */}
           <div className="text-center mb-8">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/img/vision-logo.webp`}
-              alt="Vision Event Co."
-              className="h-14 w-auto mx-auto mb-4 brightness-0"
-            />
+            <a href="https://www.visioneventco.com" target="_blank" rel="noopener noreferrer">
+              <img
+                src={`${import.meta.env.BASE_URL}assets/img/vision-logo.webp`}
+                alt="Vision Event Co."
+                className="h-16 w-auto mx-auto mb-4 brightness-0"
+              />
+            </a>
             <p className="text-base text-stone-600 leading-relaxed">
               Nonprofit event planning for fundraising galas and events, with the precision and care of luxury weddings.
             </p>
@@ -34,7 +36,7 @@ export function Footer() {
             {/* Social Icons */}
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/visioneventco"
+                href="https://www.instagram.com/visioncorporateevents"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group"

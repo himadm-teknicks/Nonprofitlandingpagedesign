@@ -28,6 +28,11 @@ export function MeetTheTeamSection() {
       title: 'Lead Producer, Non Profit Events',
       image: `${import.meta.env.BASE_URL}assets/img/katie.webp`,
     },
+    {
+      name: 'Angela Brereton',
+      title: 'Lead Producer, Non Profit Events',
+      image: `${import.meta.env.BASE_URL}assets/img/angela.webp`,
+    },
   ];
 
   return (
