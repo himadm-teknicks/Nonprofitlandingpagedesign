@@ -118,7 +118,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
   };
 
   return (
-    <section id="form-section" className="bg-gradient-to-b from-blue-50/30 to-stone-50/50 py-16 md:py-20 overflow-hidden">
+    <section className="bg-gradient-to-b from-blue-50/30 to-stone-50/50 py-16 md:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Supporting Copy */}
@@ -204,7 +204,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
             />
           </div>
           ) : (
-          <div className="bg-white rounded-lg shadow-xl p-5 sm:p-8 lg:p-10 border border-blue-100/50">
+          <div id="form-section" className="bg-white rounded-lg shadow-xl p-5 sm:p-8 lg:p-10 border border-blue-100/50 scroll-mt-24">
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-16 space-y-4">
                 <svg
