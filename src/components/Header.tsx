@@ -38,7 +38,7 @@ export function Header({ hideCTA }: HeaderProps) {
                 src={`${import.meta.env.BASE_URL}assets/img/vision-logo.webp`}
                 alt="Vision Event Co."
                 className={`w-auto transition-all duration-300 ${
-                  isScrolled ? 'h-10 sm:h-12 brightness-0' : 'h-12 sm:h-20 brightness-0 invert'
+                  isScrolled ? 'h-10 sm:h-12' : 'h-12 sm:h-20 brightness-0 invert'
                 }`}
               />
             </a>
