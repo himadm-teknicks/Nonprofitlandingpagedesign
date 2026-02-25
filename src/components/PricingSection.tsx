@@ -20,7 +20,7 @@ export function PricingSection() {
             We believe in the missions of the nonprofits we serve. That's why our services start as low as <span className="font-medium text-stone-900">$2,500</span> - and scale up only when needed. Whether you need help for a day, a week, or all year - we'll make sure you get maximum value per dollar.
           </p>
           <p className="text-lg md:text-xl text-stone-700 leading-relaxed">
-            You'll know upfront what you're investing - and how we help position your event for fundraising success.
+            Professionally executed live events often generate enough to offset production costs entirely. That's why we design our pricing to maximize your net fundraising ROI.
           </p>
         </div>
 

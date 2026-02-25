@@ -162,7 +162,7 @@ export function FormSection({ onSuccess }: FormSectionProps) {
                 <div>
                   <h3 className="text-xl font-medium text-stone-900 mb-2">Clear Pricing</h3>
                   <p className="text-stone-600 leading-relaxed">
-                    You'll know upfront what you're investing - and what you'll likely raise in return.
+                    You'll know upfront what you're investing - and how we help position your event for fundraising success.
                   </p>
                 </div>
               </div>
