@@ -6,7 +6,7 @@ export function FeaturedSection() {
     {
       name: 'The Covenant Foundation',
       imageName: 'covenant foundation',
-      image: `${import.meta.env.BASE_URL}assets/img/covenant foundation.svg`,
+      image: `${import.meta.env.BASE_URL}assets/img/covenant-foundation.svg`,
       event: 'Annual Dinner + Breakfast Symposium',
       guests: '2-Day Event, 400 Guests',
       services: [
@@ -54,7 +54,7 @@ export function FeaturedSection() {
     {
       name: 'Melee the Show',
       imageName: 'melee logo',
-      image: `${import.meta.env.BASE_URL}assets/img/melee logo.webp`,
+      image: `${import.meta.env.BASE_URL}assets/img/melee-logo.webp`,
       event: 'Bi-Annual Trade Show',
       guests: '3-Day Event, 600 Guests',
       services: [

@@ -68,7 +68,7 @@ export function TrustSection() {
           
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
             <ImageWithFallback
-              src={`${import.meta.env.BASE_URL}assets/img/why trust vision.jpg`}
+              src={`${import.meta.env.BASE_URL}assets/img/why-trust-vision.jpg`}
               alt="Professional nonprofit event"
               className="w-full h-full object-cover"
             />

@@ -16,7 +16,7 @@ export default function ThankYouApp() {
       {/* Hero Section - Same style as landing page */}
       <section className="relative pt-20 pb-8 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <ImageWithFallback
-          src={`${import.meta.env.BASE_URL}assets/img/hero BG.webp`}
+          src={`${import.meta.env.BASE_URL}assets/img/hero-bg.webp`}
           alt="Elegant nonprofit gala event"
           className="absolute inset-0 w-full h-full object-cover"
         />
